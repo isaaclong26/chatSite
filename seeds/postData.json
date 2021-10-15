@@ -1,0 +1,15 @@
+[
+    {
+        "title": "First Blog Post",
+        "content": "this is the content of the first blog post",
+        "owner": "1"
+
+    },
+    {
+        "title": "Second blog Post",
+        "content": "this is the second blog post",
+        "owner": "2"
+    }
+
+
+]
