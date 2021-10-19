@@ -3,6 +3,7 @@
 
 ### Description
 a tech blog made with handlebars express and node
+link to deployment https://techblog26.herokuapp.com/
 
 
 ## Table of contents
