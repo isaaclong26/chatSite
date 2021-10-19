@@ -1,37 +1,23 @@
 const router = require('express').Router();
-const {Post, User, Comment} = require("../../models")
+const { User, Post } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-// get all users 
-router.get("/", (req,res)=>{
-    Post.findAll({
-        
-      }).then((PostData) => {
-        res.json(PostData);
+
+router.post("/", withAuth,  async(req,res)=>{
+    try {
+        const newPost = await Post.create({
+          ...req.body,
+          owner: req.session.user_id,
+        });
+        res.status(200).json(newPost);
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  
     
-      });
-
+    
 
 })
-router.get('/:id', (req, res) => {
-  // find one category by its `id` value
-  // be sure to include its associated Products
-  Post.findByPk(req.params.id,{
-    
-  }).then((userData) => {
-    res.json(userData);
-  });
-});
 
-router.post("/",(req,res)=>{
-  Post.create(req.body)
-  .then((newPost) => {
-    res.json(newPost);
-  })
-  .catch((err) => {
-    res.json(err);
-  });
-
-
-})
 
 module.exports = router;
