@@ -11,12 +11,13 @@
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
+  <header class="display-flex justify-space-between align-center p-2 bg-primary" style="color: white;">
+    <h1 >
       Blog
     </h1>
     {{#if logged_in}}
     <nav>
+      <a href="/" style="color: aliceblue;">Home</a>
       <button class="btn" id="logout">logout</button>
     </nav>
     {{/if}}
